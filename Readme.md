@@ -25,7 +25,7 @@ Node.JS Documentation: https://nodejs.org/en/learn/getting-started/introduction-
 
 Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 
-## Explore The Fundamentals of Node.js
+# Explore The Fundamentals of Node.js
 
 ## 12-1 How the web works
 - Request Response Model / Client-Server Architecture
@@ -38,4 +38,8 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 - real Address is api address in dns server as like 139.59.2345:443
 ![alt text](image-2.png)
 ![alt text](image-3.png)
- and 
+ ##### tcp/ip socket connection
+ - ip = internet protocol
+ - tcp = transmission Control Protocol
+ ![alt text](image-5.png)
+ ![alt text](image-4.png)
