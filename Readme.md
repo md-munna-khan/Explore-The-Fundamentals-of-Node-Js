@@ -85,3 +85,31 @@ A thread is like a lane of execution — where your program runs step by step.
 A Single Thread means your program runs one task at a time, in order
 ![alt text](image-18.png)
 ![alt text](image-19.png)
+
+## 12-5 Single threaded node.js
+before we are working in server side in server side  html ,css,js all run in server side  thats why code run  browser specific we are not run in mobile application and browser application
+
+but now we are server side fully run only for backend
+the benefit is all device data access easily
+![alt text](image-20.png)
+##### 2 type tasks
+- 1 i/o input,output task
+- 2 cpu intensive tasks heavy data he is covered
+
+#### MUlti Thread Server
+- 1 any person i/o operation call in data so he came the data in one thread
+second any person request any data he come to data another thread  
+thats way data easily come in 
+![alt text](image-21.png)
+ ###### limitation threads problem
+ 1 server he handel the request but when 11 request is come he is not handeling when 1 server is gape then he receive 11 request 
+ ###### limitation handeling 2 types
+  - 1 horizontal scaling = add instance server 2,3,4 server total 40 thereades request handeling
+  -  2 Vertical scaling = increase the size (cpu,Ram)
+  ![alt text](image-22.png)
+ ##### those 2 system is very costed thats why node js is best because node js is  single threaded when multiple i/o request is coming node js give data in thread poll he handle it easily  this is not blocking i/o
+  ![alt text](image-23.png) 
+- node js working asynchronous and event loop
+  ![alt text](image-24.png) 
+  - node js is not suitable heavy cpu intensive tasks but we are handeling by Multithreading
+  ![alt text](image-26.png)
