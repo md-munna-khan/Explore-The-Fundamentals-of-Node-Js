@@ -43,3 +43,28 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
  - tcp = transmission Control Protocol
  ![alt text](image-5.png)
  ![alt text](image-4.png)
+## 12-2 Frontend vs Backend Development
+###### static web site it is pre make website
+- cross device not supported design all device create make extra responsive
+![alt text](image-6.png)
+###### dynamic web side  server side rendering first order then he is maked
+
+![alt text](image-7.png)
+###### Dynamic website client side rendering using api
+![alt text](image-8.png)
+![alt text](image-9.png)
+ ###### Benefits of using API
+ - cross device supported all device auto design selected phone,laptop etc
+ - one data model create multiple device application
+![alt text](image-10.png)
+
+## 12-3 Why Node.js was invented
+![alt text](image-11.png)
+- 2 dependencies
+![alt text](image-12.png)
+![alt text](image-13.png)
+![alt text](image-14.png)
+##### LipUv implements 2 important parts of node.js
+- 1 even Loop connect with v8 engine
+- 2 thread Pool cpu intensive task 
+![alt text](image-15.png)
