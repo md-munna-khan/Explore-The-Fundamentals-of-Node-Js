@@ -55,4 +55,16 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 ![alt text](image-9.png)
  ###### Benefits of using API
  - cross device supported all device auto design selected phone,laptop etc
+ - one data model create multiple device application
 ![alt text](image-10.png)
+
+## 12-3 Why Node.js was invented
+![alt text](image-11.png)
+- 2 dependencies
+![alt text](image-12.png)
+![alt text](image-13.png)
+![alt text](image-14.png)
+##### LipUv implements 2 important parts of node.js
+- 1 even Loop connect with v8 engine
+- 2 thread Pool cpu intensive task 
+![alt text](image-15.png)
