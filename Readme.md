@@ -46,11 +46,14 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 ## 12-2 Frontend vs Backend Development
 ###### static web site it is pre make website
 - cross device not supported design all device create make extra responsive
+- A static website is made up of fixed content — HTML, CSS, and maybe a little JavaScript. The content does not change unless a developer manually updates the code.
 ![alt text](image-6.png)
 ###### dynamic web side  server side rendering first order then he is maked
+- A dynamic website can show different content and respond to user input. It uses server-side languages (like Node.js, PHP) and databases (like MongoDB, MySQL) to generate content dynamically.
 
 ![alt text](image-7.png)
 ###### Dynamic website client side rendering using api
+- This is a modern and popular approach. The frontend is built using frameworks like React.js, and it gets content/data from an API — often from a backend server or a third-party service.
 ![alt text](image-8.png)
 ![alt text](image-9.png)
  ###### Benefits of using API
@@ -68,3 +71,17 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 - 1 even Loop connect with v8 engine
 - 2 thread Pool cpu intensive task 
 ![alt text](image-15.png)
+
+## 12-4 High Level Overview of Node.js Architecture
+![alt text](image-16.png)
+ ##### what is process?
+your instruction ==> Disk ====> Ram (this is process)
+
+![alt text](image-17.png)
+
+ ##### What is a Single Thread?
+A thread is like a lane of execution — where your program runs step by step.
+
+A Single Thread means your program runs one task at a time, in order
+![alt text](image-18.png)
+![alt text](image-19.png)
