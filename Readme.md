@@ -125,5 +125,157 @@ thats way data easily come in
    - 4 close callbacks
   ![alt text](image-28.png)
   ![alt text](image-29.png)
-  
+
   ![alt text](image-30.png)
+## 12-7 Install node.js using fnm
+ 1. MAJOR version
+Changes: Big updates that may break backward compatibility.
+
+Example: Adding a completely new structure, removing deprecated functions, or changing core logic.
+
+Example change: 1.4.2 → 2.0.0
+
+ 2. MINOR version
+Changes: New features added in a backward-compatible way.
+
+Example: Adding a new API endpoint, new component, or new configuration option.
+
+Example change: 1.4.2 → 1.5.0
+
+ 3. PATCH version
+Changes: Bug fixes or small tweaks that do not affect the API or add new features.
+
+Example: Fixing a broken button, correcting a typo, fixing a logic error.
+
+Example change: 1.4.2 → 1.4.3
+
+
+  ![alt text](image-31.png)
+  # Node.js Installation Using `fnm` (Fast Node Manager)
+
+This guide explains how to install and manage multiple versions of Node.js using `fnm`, without Docker. This is helpful when you need to switch Node versions for different projects.
+
+---
+
+## ✅ Why Use `fnm`?
+
+* Easily switch between multiple Node.js versions.
+* Lightweight and faster than alternatives like `nvm`.
+* Avoid global conflicts.
+* No need to install Node.js directly on the system when using containers like Docker.
+
+---
+
+## 📦 Installation Using `fnm` (Without Docker)
+
+### Step 1: Install `winget` (Skip if already installed)
+
+`winget` is a Windows package manager.
+
+* Comes pre-installed with Windows 10 (build 1809+) and Windows 11.
+* If not, download from the [official GitHub repo](https://github.com/microsoft/winget-cli).
+
+### Step 2: Install `fnm` using `winget`
+
+Open PowerShell as Administrator and run:
+
+```powershell
+winget install Schniz.fnm
+```
+
+### Step 3: Verify Installation
+
+```powershell
+fnm --version
+```
+
+---
+
+## 🛠 Environment Setup
+
+You may need to manually add the following paths to your **system environment variables**:
+
+```
+C:\Users\<YourName>\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\<YourName>\AppData\Roaming\fnm\aliases\default
+```
+
+> ⚠️ Tip: Show hidden files when browsing these directories.
+
+---
+
+## 📅 Installing and Managing Node.js Versions
+
+### Install Node.js v22
+
+```powershell
+fnm install 22
+fnm use 22
+```
+
+### Install and Use Node.js v24
+
+```powershell
+fnm install 24
+fnm use 24
+```
+
+### Check Current Node Version
+
+```powershell
+node -v
+```
+
+### List Installed Node.js Versions
+
+```powershell
+fnm ls
+```
+
+---
+
+## ⚙️ Setup Auto Environment with PowerShell
+
+### Step 1: Create PowerShell Profile (if it doesn’t exist)
+
+```powershell
+if (-not (Test-Path $profile)) { New-Item $profile -Force }
+```
+
+### Step 2: Open the Profile File
+
+```powershell
+Invoke-Item $profile
+```
+
+### Step 3: Paste the following line inside the profile file
+
+```powershell
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+```
+
+> ✅ This ensures `fnm` works automatically every time you open a new PowerShell terminal.
+
+---
+
+## 🚀 Quick Shortcut Method
+
+### Reinstall Node.js with Shortcut Method (Clean Flow)
+
+```powershell
+# Install fnm
+winget install Schniz.fnm
+
+# Allow PowerShell scripts
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Close and reopen Terminal as Administrator
+
+# Install specific Node.js version
+fnm install 22
+
+# Use the installed version
+fnm use 22
+
+# Confirm ins
+```
