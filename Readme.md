@@ -279,3 +279,18 @@ fnm use 22
 
 # Confirm ins
 ```
+## 12-8 Modular system in node.js
+- var is global scope he all area in call
+- when we are call let and let  is not global scope it is functional scope
+![alt text](image-32.png)
+- 2 same variable when we are call and create a conflig 
+![alt text](image-33.png)
+conflig solution
+![alt text](image-34.png)
+but long function we are easy handeling by the common js or esm module system
+![alt text](image-35.png)
+Modular system
+- 1 local module (we create) for example when any function as like add function   create and using our system by the import and export this is local module
+- 2 Built in modules (come with node js)
+- third party modules (created by others)
+![alt text](image-36.png)
