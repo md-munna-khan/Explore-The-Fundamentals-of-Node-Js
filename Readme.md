@@ -46,11 +46,14 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 ## 12-2 Frontend vs Backend Development
 ###### static web site it is pre make website
 - cross device not supported design all device create make extra responsive
+- A static website is made up of fixed content — HTML, CSS, and maybe a little JavaScript. The content does not change unless a developer manually updates the code.
 ![alt text](image-6.png)
 ###### dynamic web side  server side rendering first order then he is maked
+- A dynamic website can show different content and respond to user input. It uses server-side languages (like Node.js, PHP) and databases (like MongoDB, MySQL) to generate content dynamically.
 
 ![alt text](image-7.png)
 ###### Dynamic website client side rendering using api
+- This is a modern and popular approach. The frontend is built using frameworks like React.js, and it gets content/data from an API — often from a backend server or a third-party service.
 ![alt text](image-8.png)
 ![alt text](image-9.png)
  ###### Benefits of using API
@@ -68,3 +71,59 @@ Let’s get started and unlock the server-side superpowers of JavaScript! 💪
 - 1 even Loop connect with v8 engine
 - 2 thread Pool cpu intensive task 
 ![alt text](image-15.png)
+
+## 12-4 High Level Overview of Node.js Architecture
+![alt text](image-16.png)
+ ##### what is process?
+your instruction ==> Disk ====> Ram (this is process)
+
+![alt text](image-17.png)
+
+ ##### What is a Single Thread?
+A thread is like a lane of execution — where your program runs step by step.
+
+A Single Thread means your program runs one task at a time, in order
+![alt text](image-18.png)
+![alt text](image-19.png)
+
+## 12-5 Single threaded node.js
+before we are working in server side in server side  html ,css,js all run in server side  thats why code run  browser specific we are not run in mobile application and browser application
+
+but now we are server side fully run only for backend
+the benefit is all device data access easily
+![alt text](image-20.png)
+##### 2 type tasks
+- 1 i/o input,output task
+- 2 cpu intensive tasks heavy data he is covered
+
+#### MUlti Thread Server
+- 1 any person i/o operation call in data so he came the data in one thread
+second any person request any data he come to data another thread  
+thats way data easily come in 
+![alt text](image-21.png)
+ ###### limitation threads problem
+ 1 server he handel the request but when 11 request is come he is not handeling when 1 server is gape then he receive 11 request 
+ ###### limitation handeling 2 types
+  - 1 horizontal scaling = add instance server 2,3,4 server total 40 thereades request handeling
+  -  2 Vertical scaling = increase the size (cpu,Ram)
+  ![alt text](image-22.png)
+ ##### those 2 system is very costed thats why node js is best because node js is  single threaded when multiple i/o request is coming node js give data in thread poll he handle it easily  this is not blocking i/o
+  ![alt text](image-23.png) 
+- node js working asynchronous and event loop
+  ![alt text](image-24.png) 
+  - node js is not suitable heavy cpu intensive tasks but we are handeling by Multithreading
+  ![alt text](image-26.png)
+
+  ## 12-6 How event loop works
+  ![alt text](image-27.png)
+  ###### How event Loop Works
+   when start event loop then start a callback queues he find where the start event loop and he action it by thread pool
+   -    ====== priority list ==========
+  - 1 expire timer callback
+  - 2 i/o polling and callbacks
+  - 3 setimmidate callbacks
+   - 4 close callbacks
+  ![alt text](image-28.png)
+  ![alt text](image-29.png)
+  
+  ![alt text](image-30.png)
