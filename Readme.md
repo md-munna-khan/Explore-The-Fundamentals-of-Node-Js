@@ -113,3 +113,17 @@ thats way data easily come in
   ![alt text](image-24.png) 
   - node js is not suitable heavy cpu intensive tasks but we are handeling by Multithreading
   ![alt text](image-26.png)
+
+  ## 12-6 How event loop works
+  ![alt text](image-27.png)
+  ###### How event Loop Works
+   when start event loop then start a callback queues he find where the start event loop and he action it by thread pool
+   -    ====== priority list ==========
+  - 1 expire timer callback
+  - 2 i/o polling and callbacks
+  - 3 setimmidate callbacks
+   - 4 close callbacks
+  ![alt text](image-28.png)
+  ![alt text](image-29.png)
+  
+  ![alt text](image-30.png)
