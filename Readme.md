@@ -294,3 +294,21 @@ Modular system
 - 2 Built in modules (come with node js)
 - third party modules (created by others)
 ![alt text](image-36.png)
+
+## 12-9 Explore commonjs module
+- 1 local module 
+![alt text](image-37.png)
+![alt text](image-38.png)
+ 
+ module.exports file
+```js
+const a = 10;
+const add =(param1,param2)=>  param1 + param2;
+module.exports = {a,add}
+```
+ require
+ ```js
+ const {a,add}= require ("./file-2.js")
+console.log(a)
+console.log(add(5,8))
+```
