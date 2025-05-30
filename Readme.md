@@ -631,7 +631,7 @@ console.log(addKoro.c);
 - we do not do that. in default export we just send single function like
 
 ```js
-export default add;
+export default add ; its default add
 ```
 
 - basically we use this in react.
