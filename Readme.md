@@ -312,3 +312,200 @@ module.exports = {a,add}
 console.log(a)
 console.log(add(5,8))
 ```
+
+📘 CommonJS Module Guide (Export & Import)
+Basic Export and Import
+file-1.js
+
+```js
+
+const a = 10;
+module.exports = a;
+file-2.js
+```
+```js
+const var1 = require("./file-1");
+console.log(var1);
+To run:
+```
+```js
+cd Learning-Node
+node file-2.js
+Exploring module Object
+js
+Copy
+Edit
+const a = 10;
+module.exports = a;
+console.log(module);
+Sample output of console.log(module)
+```
+```js
+{
+  id: '.',
+  path: '...\\Learning-Node',
+  exports: 10,
+  filename: '...\\file-1.js',
+  loaded: false,
+  children: [],
+  paths: [...],
+  [Symbol(kIsMainSymbol)]: true
+}
+```
+✅ exports: 10 replaces the default empty object.
+
+Export a Function Instead
+```js
+const a = 10;
+const add = (p1, p2) => p1 + p2;
+module.exports = add;
+console.log(module);
+```
+Export Multiple Values
+```js
+
+
+const a = 10;
+const add = (p1, p2) => p1 + p2;
+module.exports = { a, add };
+console.log(module);
+file-2.js
+
+
+const var1 = require("./file-1");
+console.log(var1); // { a: 10, add: [Function: add] }
+console.log(var1.a);
+console.log(var1.add(2, 3));
+Destructuring:
+
+const { a, add } = require("./file-1");
+console.log(a);
+console.log(add(2, 3));
+🔀 Named Exports, Aliasing & Index Export
+Avoid name conflicts using aliasing:
+
+
+const { a, add } = require("./file-1");
+const { a: a3, add: add3, b: b3 } = require("./file-3");
+
+console.log(a3);
+console.log(add3(2, 3, 6));
+console.log(b3);
+Alternative (no destructuring):
+
+
+const var1 = require("./file-1");
+const { a, add: add3, b } = require("./file-3");
+
+console.log(var1.a);
+console.log(var1.add(2, 3));
+console.log(a);
+console.log(add3(2, 3, 6));
+console.log(b);
+ Organizing Utilities with Index File
+utils/add.js
+
+
+const add = (p1, p2) => p1 + p2;
+module.exports = { add };
+utils/subtract.js
+
+
+const subtract = (p1, p2) => p1 - p2;
+module.exports = { subtract };
+main.js (Direct import)
+
+
+
+const { add } = require("./utils/add");
+const { subtract } = require("./utils/subtract");
+
+console.log(add(3, 2));
+console.log(subtract(3, 2));
+✅ Cleaner Import via Index File
+utils/index.js
+
+
+const { add } = require("./add");
+const { subtract } = require("./subtract");
+module.exports = { add, subtract };
+main.js
+```
+```js
+
+
+// Option 1
+const { add, subtract } = require("./utils/index");
+
+// Option 2 (recommended)
+const { add, subtract } = require("./utils");
+
+console.log(add(3, 2));
+console.log(subtract(3, 2));
+```
+
+## 12-11 IIFE immediately invoked function express a Module Wrapper
+- window he is as like object all function  under it
+- but 
+global function but require and module not global function
+![alt text](image-39.png)
+###### block scope function
+![alt text](image-40.png)
+###### require and and module it is not global function but how is it access
+
+this is block scope console not working because let in block scope
+``` js
+
+((name)=>{
+    let a= 10
+    console.log(`learning ${name}`);
+})("node");
+console.log(a)
+``` 
+![alt text](image-42.png)
+right now work it because let call in global scope
+
+```js
+ let a = 10;
+((name)=>{
+   
+    console.log(`learning ${name}`);
+})("node");
+console.log(a)
+```
+==============> when run node command he hiddenly run module ,require ,_ _ directName etc 
+![alt text](image-43.png)
+
+when console  global
+ ``` js
+console.log(global )
+``` 
+```js
+PS D:\next-level\nodeJs\Explore-TheFundamentals-Node-js> node iife.js
+learning node
+10
+<ref *1> Object [global] {
+  global: [Circular *1],
+  clearImmediate: [Function: clearImmediate],
+  setImmediate: [Function: setImmediate] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  clearInterval: [Function: clearInterval],
+  clearTimeout: [Function: clearTimeout],
+  setInterval: [Function: setInterval],
+  setTimeout: [Function: setTimeout] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  queueMicrotask: [Function: queueMicrotask],
+  structuredClone: [Function: structuredClone],
+  atob: [Function: atob],
+  btoa: [Function: btoa],
+  performance: [Getter/Setter],
+  fetch: [Function: fetch],
+  navigator: [Getter],
+  crypto: [Getter]
+}
+```
+ - but you look it module export not found in this 
+![alt text](image-44.png)
+actually he call it hiddenly
