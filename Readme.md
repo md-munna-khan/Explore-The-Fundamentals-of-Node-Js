@@ -371,18 +371,13 @@ module.exports = { a, add };
 console.log(module);
 file-2.js
 
-js
-Copy
-Edit
+
 const var1 = require("./file-1");
 console.log(var1); // { a: 10, add: [Function: add] }
 console.log(var1.a);
 console.log(var1.add(2, 3));
 Destructuring:
 
-js
-Copy
-Edit
 const { a, add } = require("./file-1");
 console.log(a);
 console.log(add(2, 3));
@@ -438,7 +433,7 @@ main.js
 ```
 ```js
 
-Edit
+
 // Option 1
 const { add, subtract } = require("./utils/index");
 
@@ -448,3 +443,69 @@ const { add, subtract } = require("./utils");
 console.log(add(3, 2));
 console.log(subtract(3, 2));
 ```
+
+## 12-11 IIFE immediately invoked function express a Module Wrapper
+- window he is as like object all function  under it
+- but 
+global function but require and module not global function
+![alt text](image-39.png)
+###### block scope function
+![alt text](image-40.png)
+###### require and and module it is not global function but how is it access
+
+this is block scope console not working because let in block scope
+``` js
+
+((name)=>{
+    let a= 10
+    console.log(`learning ${name}`);
+})("node");
+console.log(a)
+``` 
+![alt text](image-42.png)
+right now work it because let call in global scope
+
+```js
+ let a = 10;
+((name)=>{
+   
+    console.log(`learning ${name}`);
+})("node");
+console.log(a)
+```
+==============> when run node command he hiddenly run module ,require ,_ _ directName etc 
+![alt text](image-43.png)
+
+when console  global
+ ``` js
+console.log(global )
+``` 
+```js
+PS D:\next-level\nodeJs\Explore-TheFundamentals-Node-js> node iife.js
+learning node
+10
+<ref *1> Object [global] {
+  global: [Circular *1],
+  clearImmediate: [Function: clearImmediate],
+  setImmediate: [Function: setImmediate] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  clearInterval: [Function: clearInterval],
+  clearTimeout: [Function: clearTimeout],
+  setInterval: [Function: setInterval],
+  setTimeout: [Function: setTimeout] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  queueMicrotask: [Function: queueMicrotask],
+  structuredClone: [Function: structuredClone],
+  atob: [Function: atob],
+  btoa: [Function: btoa],
+  performance: [Getter/Setter],
+  fetch: [Function: fetch],
+  navigator: [Getter],
+  crypto: [Getter]
+}
+```
+ - but you look it module export not found in this 
+![alt text](image-44.png)
+actually he call it hiddenly
