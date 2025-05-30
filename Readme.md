@@ -635,4 +635,4 @@ export default add;
 ```
 
 - basically we use this in react.
-- so in a nut shell in case of named export we have to keep the name same in import export but in default export we can give any name.
+- so in a nut shell in case of named export we have to keep the name same in import export but in default export we can give any name
