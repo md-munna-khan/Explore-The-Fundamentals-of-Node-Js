@@ -312,3 +312,139 @@ module.exports = {a,add}
 console.log(a)
 console.log(add(5,8))
 ```
+
+📘 CommonJS Module Guide (Export & Import)
+Basic Export and Import
+file-1.js
+
+```js
+
+const a = 10;
+module.exports = a;
+file-2.js
+```
+```js
+const var1 = require("./file-1");
+console.log(var1);
+To run:
+```
+```js
+cd Learning-Node
+node file-2.js
+Exploring module Object
+js
+Copy
+Edit
+const a = 10;
+module.exports = a;
+console.log(module);
+Sample output of console.log(module)
+```
+```js
+{
+  id: '.',
+  path: '...\\Learning-Node',
+  exports: 10,
+  filename: '...\\file-1.js',
+  loaded: false,
+  children: [],
+  paths: [...],
+  [Symbol(kIsMainSymbol)]: true
+}
+```
+✅ exports: 10 replaces the default empty object.
+
+Export a Function Instead
+```js
+const a = 10;
+const add = (p1, p2) => p1 + p2;
+module.exports = add;
+console.log(module);
+```
+Export Multiple Values
+```js
+
+
+const a = 10;
+const add = (p1, p2) => p1 + p2;
+module.exports = { a, add };
+console.log(module);
+file-2.js
+
+js
+Copy
+Edit
+const var1 = require("./file-1");
+console.log(var1); // { a: 10, add: [Function: add] }
+console.log(var1.a);
+console.log(var1.add(2, 3));
+Destructuring:
+
+js
+Copy
+Edit
+const { a, add } = require("./file-1");
+console.log(a);
+console.log(add(2, 3));
+🔀 Named Exports, Aliasing & Index Export
+Avoid name conflicts using aliasing:
+
+
+const { a, add } = require("./file-1");
+const { a: a3, add: add3, b: b3 } = require("./file-3");
+
+console.log(a3);
+console.log(add3(2, 3, 6));
+console.log(b3);
+Alternative (no destructuring):
+
+
+const var1 = require("./file-1");
+const { a, add: add3, b } = require("./file-3");
+
+console.log(var1.a);
+console.log(var1.add(2, 3));
+console.log(a);
+console.log(add3(2, 3, 6));
+console.log(b);
+ Organizing Utilities with Index File
+utils/add.js
+
+
+const add = (p1, p2) => p1 + p2;
+module.exports = { add };
+utils/subtract.js
+
+
+const subtract = (p1, p2) => p1 - p2;
+module.exports = { subtract };
+main.js (Direct import)
+
+
+
+const { add } = require("./utils/add");
+const { subtract } = require("./utils/subtract");
+
+console.log(add(3, 2));
+console.log(subtract(3, 2));
+✅ Cleaner Import via Index File
+utils/index.js
+
+
+const { add } = require("./add");
+const { subtract } = require("./subtract");
+module.exports = { add, subtract };
+main.js
+```
+```js
+
+Edit
+// Option 1
+const { add, subtract } = require("./utils/index");
+
+// Option 2 (recommended)
+const { add, subtract } = require("./utils");
+
+console.log(add(3, 2));
+console.log(subtract(3, 2));
+```
